@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+     <meta charset="utf-8">
+     <meta name="author" content="Paulo Balduino">
+      <meta name="description" content="Portfolio de Paulo Balduino">
+     <meta name="keywords" content="HTML">
+  <title>Portfolio Paulo Balduino</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <script src="{% static 'js/styles.js' %}" defer></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <div id="menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul id="nav-links">
+         <li><a href="{% url 'index' %}">Home</a></li>
+         <li><a href="{% url 'sobremim' %}">Sobre mim</a></li>
+         <li><a href="https://a22003433ulht.pythonanywhere.com/bandas/">Bandas</a></li>
+         <li><a href="https://a22003433ulht.pythonanywhere.com/artigos/">Artigos</a></li>
+         <li><a href="{% url 'contacto' %}">Entre em contacto</a></li>
+     </ul>
+    </nav>
+  </header>
+
+
+   <video autoplay loop muted id="bg-video">
+    <source src="{% static 'videos/backgroundvideo_muted.mp4' %}" type="video/mp4">
+  </video>
+
+  <main>
+    <h1>Olá!Eu sou o Paulo</h1>
+  </main>
+
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', function() {
+      // Toggle 'active' class on menu button
+      this.classList.toggle('active');
+
+      // Toggle 'active' class on nav links
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

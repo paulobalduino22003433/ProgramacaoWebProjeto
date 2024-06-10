@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ artigo.titulo }}</title>
+    <style>
+        body {
+            background-color: tan;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ artigo.titulo }}</h1>
+    <p>{{ artigo.conteudo }}</p>
+    <p>Autor: {{ artigo.autor.nome }}</p> <!-- Modificado aqui -->
+    <h2>Comentários</h2>
+    <ul>
+        {% for comentario in artigo.comentarios.all %}
+            <li>{{ comentario.conteudo }} - {{ comentario.autor.nome }}</li> <!-- Modificado aqui -->
+        {% endfor %}
+    </ul>
+    <h2>Avaliações</h2>
+    <ul>
+        {% for avaliacao in artigo.avaliacoes.all %}
+            <li>{{ avaliacao.nota }} - {{ avaliacao.autor.nome }}</li> <!-- Modificado aqui -->
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albuns</title>
+    <style>
+    body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: tan;
+        }
+    ul   {
+            padding: 0;
+            list-style-position: inside;
+            display: inline-block;
+            text-align: left;
+        }
+    </style>
+<h1>{{ object.titulo }}</h1>
+<img src="{{ object.capa.url }}" alt="{{ object.titulo }}">
+<p>Data de Lançamento: {{ object.data_lancamento }}</p>
+
+<h2>Músicas</h2>
+<ul>
+    {% for musica in object.musicas.all %}
+        <li>{{ musica.titulo }} - <a href="{{ musica.spotify_link }}">Spotify</a></li>
+    {% endfor %}
+</ul>

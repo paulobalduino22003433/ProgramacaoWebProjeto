@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Artigos</title>
+    <style>
+        body {
+            background-color: tan;
+        }
+        #nav-links {
+  display: none;
+  background-color: tan;
+}
+
+/* Style menu button as a square with three lines */
+#menu-btn {
+  width: 40px;
+  height: 40px;
+  background-color: tan;
+  position: relative;
+  cursor: pointer;
+}
+
+#menu-btn span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: -2px;
+  height: 4px;
+  background-color: #fff; /*white lines*/
+}
+
+#menu-btn span:nth-child(1) {
+  top: 25%;
+}
+
+#menu-btn span:nth-child(2) {
+  top: 50%;
+}
+
+#menu-btn span:nth-child(3) {
+  top: 75%;
+}
+
+/* Add animation to menu button */
+#menu-btn.active span {
+  animation: animateLines 0.5s forwards;
+}
+
+@keyframes animateLines {
+  0% {
+    transform: translateY(0) scaleX(1);
+  }
+  50% {
+    transform: translateY(-50%) scaleX(0);
+  }
+  100% {
+    transform: translateY(-50%) scaleX(1);
+  }
+}
+
+/* Add animation to nav links */
+#nav-links.active {
+  display: block;
+  animation: slideInLeft 0.5s forwards;
+  background-color: tan;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+    </style>
+</head>
+<body>
+     <header>
+    <nav>
+      <div id="menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+     <ul id="nav-links">
+         <li><a href="{% url 'index' %}">Home</a></li>
+         <li><a href="{% url 'sobremim' %}">Sobre mim</a></li>
+         <li><a href="https://a22003433ulht.pythonanywhere.com/bandas/">Bandas</a></li>
+         <li><a href="https://a22003433ulht.pythonanywhere.com/artigos/">Artigos</a></li>
+         <li><a href="{% url 'contacto' %}">Entre em contacto</a></li>
+     </ul>
+    </nav>
+  </header>
+    <h1>Artigos</h1>
+    <ul>
+        {% for artigo in artigos %}
+            <li><a href="{% url 'artigos:detalhe_artigo' artigo.id %}">{{ artigo.titulo }}</a></li>
+        {% endfor %}
+    </ul>
+    <script>
+    document.getElementById('menu-btn').addEventListener('click', function() {
+      // Toggle 'active' class on menu button
+      this.classList.toggle('active');
+
+      // Toggle 'active' class on nav links
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

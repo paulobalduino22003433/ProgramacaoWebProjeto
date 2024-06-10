@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+     <meta charset="utf-8">
+     <meta name="author" content="Paulo Balduino">
+      <meta name="description" content="Contactos de Paulo Balduino">
+     <meta name="keywords" content="HTML">
+  <title>Portfolio Paulo Balduino</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <script src="{% static 'js/styles.js' %}" defer></script>
+  <style>
+     footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  body.dark-mode {
+        background-color: #1c1c1c;
+        color: #f2f2f2;
+      }
+
+
+      .toggle-dark-mode {
+        display: flex;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 100;
+      }
+
+
+      body.dark-mode .toggle-dark-mode {
+        display: block;
+      }
+
+
+  footer a {
+    color: rgb(147, 187, 202);
+  }
+
+  img {
+  display: block;
+  margin: 180px auto 0;
+  margin-left: 400px;
+}
+
+.animacoes{
+    position: absolute;
+    bottom:750px;
+    left: 750px;
+}
+
+
+.linkedin-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.linkedin-container img {
+    margin-right: 20px;
+}
+
+.linkedin-link {
+    position: absolute;
+    top: 355px; /* Adjust the top position value to your preference */
+    left: 1330px; /* Adjust the left position value to your preference */
+}
+
+  .linkedin-container a {
+    margin-top: 175px;
+  }
+
+  .whatsapp {
+      max-width: 600px;
+      font-size: 18px;
+      position: absolute;
+      top: 320px;
+      left: 440px;
+      padding: 10px;
+      background-color: rgba(102, 102, 102, 0.5);
+
+    }
+
+    .gmail {
+      max-width: 600px;
+      font-size: 18px;
+      position: absolute;
+      top: 320px;
+      left: 890px;
+      padding: 10px;
+      background-color: rgba(102, 102, 102, 0.5);
+
+    }
+
+    .gmail:hover, .whatsapp:hover {
+  animation: rotate 1s linear infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div id="menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul id="nav-links">
+         <li><a href="{% url 'index' %}">Home</a></li>
+         <li><a href="{% url 'sobremim' %}">Sobre mim</a></li>
+         <li><a href="https://a22003433ulht.pythonanywhere.com/bandas/">Bandas</a></li>
+         <li><a href="https://a22003433ulht.pythonanywhere.com/artigos/">Artigos</a></li>
+         <li><a href="{% url 'contacto' %}">Entre em contacto</a></li>
+     </ul>
+    </nav>
+    <button class="toggle-dark-mode" onclick="toggleDarkMode()"> Dark Mode</button>
+  </header>
+
+  <p class="animacoes">Experimente passar o rato por cima do número ou do email 😉</p>
+
+  <div class="linkedin-container">
+    <a href="/home/a22003433ulht/project/portfolio/static/images/miniwhatsapp.png">
+        <img src="{% static 'images/miniwhatsapp.png' %}" alt="whatsapp of Paulo Balduino">
+    </a>
+    <p class="whatsapp">+351 926 342 572</p>
+    <a href="/home/a22003433ulht/project/portfolio/static/images/minigmail.png">
+        <img src="{% static 'images/minigmail.png' %}" alt="gmail of Paulo Balduino">
+    </a>
+    <p class="gmail">paulobalduino88@gmail.com</p>
+    <a href="/home/a22003433ulht/project/portfolio/static/images/minilinkedIN.png">
+        <img src="{% static 'images/minilinkedIN.png' %}" alt="LinkedIN of Paulo Balduino">
+    </a>
+</div>
+<a class="linkedin-link" href="https://www.linkedin.com/in/paulo-balduino-20151920b/">LinkedIn</a>
+
+
+
+  <script>
+    function toggleDarkMode() {
+
+      document.body.classList.toggle('dark-mode');
+    }
+
+    document.getElementById('menu-btn').addEventListener('click', function() {
+
+      this.classList.toggle('active');
+
+
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+
+  </script>
+  <footer>
+    <p>Entre em contacto comigo via: <a href="pauloEmail">paulobalduino88@gmail.com</a></p>
+  </footer>
+</body>
+</html>
